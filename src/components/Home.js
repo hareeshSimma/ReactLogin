@@ -11,11 +11,10 @@ export default class Home extends Component {
     }
     
     this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.login.bind(this);
+    this.login = this.login.bind(this);
   } 
 
   handleChange(e) {
-    e.target.classList.add('active');
     
     this.setState({
       [e.target.name]: e.target.value
@@ -25,7 +24,14 @@ export default class Home extends Component {
   }
   login(e){
     e.preventDefault();
-    console.log(this.state)
+    // console.log(this.state)
+
+    const data={
+      email:this.state.email,
+      password:this.state.password
+    }
+    localStorage.setItem("user",JSON.stringify(data));
+    console.log(data)
   }
   render() {
     return (
