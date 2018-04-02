@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import {Provider} from 'react-redux';
-import store from '../store/store';
 import {Link } from 'react-router-dom';
 import '../css/style.css'
+import { connect } from 'react-redux';
+import { login } from '../actions/loginAction';
 
-export default class Login extends Component {
+ class Login extends Component {
 
   constructor(props){
     super(props)
@@ -33,13 +33,14 @@ export default class Login extends Component {
       email:this.state.email,
       password:this.state.password
     }
-    
+    this.props.login(data,this.props);
+
     console.log(data)
   }
 
   render() {
     return (
-      <Provider store={store}>
+    
       <div className="login container">
      
       <div className="form-group col-4 offset-4">
@@ -58,7 +59,9 @@ export default class Login extends Component {
   
   </div>
       </div>
-      </Provider>
+    
     )
   }
 }
+
+export default connect(null,{login})(Login);

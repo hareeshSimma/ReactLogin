@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import {Link } from 'react-router-dom';
 import '../css/style.css'
-export default class SignUp extends Component {
+import {signUp} from '../actions/signUpAction';
+import {connect} from 'react-redux';
+
+ class SignUp extends Component {
 
   constructor(){
     super();
@@ -15,7 +18,7 @@ export default class SignUp extends Component {
     this.register = this.register.bind(this);
   }
   handleChange(e){
-    this.setState({
+    this.setState({ 
       [e.target.name]:e.target.value
     })
   }
@@ -27,7 +30,8 @@ export default class SignUp extends Component {
       email:this.state.email,
       password:this.state.password
     }
-  localStorage.setItem("registration data",JSON.stringify(registerData));
+    this.props.register(registerData,this.props);
+  // localStorage.setItem("registration data",JSON.stringify(registerData));
   console.log(registerData);
   }
   render() {
@@ -57,3 +61,5 @@ export default class SignUp extends Component {
     )
   }
 }
+
+export default connect(null,{signUp})(SignUp);
