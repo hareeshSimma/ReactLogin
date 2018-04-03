@@ -4,13 +4,14 @@ import Alert from 'react-s-alert';
 
 export const login =  (data,context) => (dispatch) => {
     axios.post(LOGIN_URL,data).then(res=>{
+        console.log(res)
         if(res.data.data){
             localStorage.setItem('userDetails',JSON.stringify(res.data.data[0]));
             dispatch({
                 type:USER_LOGIN,
                 data: res.data.data
             });
-            // context.history.push('/dashboard/userdetails');
+             context.history.push('/home');
         }else{
              Alert.error("Invalid user details",ALERT_CONFIG);
             context.history.push('/');

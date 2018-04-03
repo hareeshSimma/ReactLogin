@@ -4,6 +4,7 @@ import Alert from 'react-s-alert';
 
 export const signUp = (data,context) => (dispatch) => {
     axios.post(SIGNUP_URL,data).then(res=> {
+        console.log(res)
         if(res.data.data){
             dispatch({
                 type:USER_SIGNUP,

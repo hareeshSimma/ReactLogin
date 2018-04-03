@@ -12,8 +12,7 @@ import Home from './components/Home';
 import Login from './components/Login';
 import SignUp from './components/SignUp';
 
-// import Header from './components/Header';
-// import Footer from './components/Footer';
+
 
 class App extends Component {
   render() {

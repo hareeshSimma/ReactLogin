@@ -21,7 +21,7 @@ import {connect} from 'react-redux';
     this.setState({ 
       [e.target.name]:e.target.value
     })
-  }
+  } 
   register(e){
     e.preventDefault();
 
@@ -30,7 +30,7 @@ import {connect} from 'react-redux';
       email:this.state.email,
       password:this.state.password
     }
-    this.props.register(registerData,this.props);
+    this.props.signUp(registerData,this.props);
   // localStorage.setItem("registration data",JSON.stringify(registerData));
   console.log(registerData);
   }
