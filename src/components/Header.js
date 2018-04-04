@@ -3,9 +3,9 @@ import '../css/style.css';
 
 export default class Header extends Component {
 
-  logout (context) {
+  logout= ()=> {
     localStorage.clear();
-    // context.history.push('/');
+    this.props.history.push('/');
   } 
 
   render() {

@@ -47,7 +47,6 @@ router.post('/register', function(req, res, next) {
 });
 
 router.get('/getAllUsers', function(req, res, next) {
-  console.log("@@@@@@@@@@@@@@@@@@@@")
   User.find({},function(err,data){
     console.log(data)
     if(err){

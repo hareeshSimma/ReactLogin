@@ -9,7 +9,7 @@ export default function (state=initialState,action){
         case ALL_USERS:
         return {
             ...state,
-            allUsers: action.users
+            allUsers: action.data
         }
         default:
         return state;

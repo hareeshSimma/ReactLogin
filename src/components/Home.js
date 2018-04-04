@@ -9,8 +9,8 @@ export default class Home extends Component {
     return (
      
       <div className="home">
-       <Header/>
-      <UserDetails/>
+       <Header history={this.props.history}/>
+       <UserDetails/>
        <Footer/>
       </div>
      
