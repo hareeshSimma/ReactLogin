@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import {withRouter} from 'react-router';
 import { connect } from 'react-redux';
 import { ScaleLoader } from 'react-spinners';
-
 import { allUsersDetails } from '../actions/userActions';
+import '../css/style.css';
 
 class UserDetails extends Component {
   constructor(props) {
@@ -12,13 +12,11 @@ class UserDetails extends Component {
 
       loading:this.props.allUsers && this.props.allUsers.length? false:true
     }
-    // this.props.allUsersDetails();
     
   } 
 
   componentDidMount(){
     this.props.allUsersDetails(); 
-    // console.log(this.props.allUsersDetails())
   };
 
   componentDidUpdate(nextProps, nextState){
@@ -26,7 +24,17 @@ class UserDetails extends Component {
       this.setState({loading:false});
     }
   }
+edit=(item)=>{
+  console.log(item)
+}
 
+delete=(index,state)=>{
+console.log(index)
+this.props.allUsers.splice(index,1);
+this.setState({
+  allUsers:state.allUsers
+})
+}
   render() {
     return (
       <React.Fragment>
@@ -53,8 +61,8 @@ class UserDetails extends Component {
                   <td key={index}>{index+1}</td>
                    <td key={item.userName}>{item.userName}</td>
                   <td key={item.email}>{item.email}</td>  
-                  <td>Edit</td>                                                    
-                  <td>Delete</td>                                                    
+                  <td className="edit" onClick={this.edit.bind(this,item)}>Edit</td>                                                    
+                  <td className="edit" onClick={this.delete.bind(this,index)}>Delete</td>                                                    
                 </tr>
               )
             })}

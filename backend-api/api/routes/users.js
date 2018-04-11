@@ -57,6 +57,19 @@ router.get('/getAllUsers', function(req, res, next) {
   });
 });
 
+router.post('/editUsers', function(req, res, next) {
+  console.log(req.body);
 
+  User.find({email:req.body.email},function(err,data){
+    if(err){
+      res.json({err:err,code:0});
+    }else if(data.length){
+
+      res.json({msg:'Data Update Successfully',data:data, code:2})
+    }else{
+      res.json({msg:'Data not Updated',code:1})
+    }
+  });
+});
 
 module.exports = router;

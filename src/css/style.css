@@ -4,3 +4,12 @@
 .buttonright{
     float: right;
 }
+
+.edit{
+    cursor: pointer;
+    color: blue;
+}
+.edit:hover{
+    text-decoration: underline;
+    
+}
